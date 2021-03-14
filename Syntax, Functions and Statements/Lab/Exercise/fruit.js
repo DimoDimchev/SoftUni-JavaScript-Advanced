@@ -6,4 +6,4 @@ function fruitPrice(...input) {
 }
 
 
-// fruitPrice('apple', 1563, 2.35)
+// fruitPrice('apple', 1563, 2.35);
