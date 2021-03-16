@@ -1,5 +1,4 @@
 function findBiggestNumber(nestedArray) {
-    let biggestNumber = -(Number.MIN_VALUE);
     let concatenatedArray = [];
 
     nestedArray.forEach(function (element) {
