@@ -5,12 +5,12 @@ function findBiggestNumber(nestedArray) {
         concatenatedArray = concatenatedArray.concat(element);
     })
 
-    concatenatedArray.sort(function(a, b){return a-b});
-    concatenatedArray.reverse();
+    concatenatedArray.sort(function(a, b){return a-b})
+                     .reverse();
 
     return concatenatedArray[0];
 }
-
+//
 // console.log(findBiggestNumber([[3, 5, 7, 12],
 //     [-1, 4, 33, 2],
 //     [8, 3, 0, 4]]))
