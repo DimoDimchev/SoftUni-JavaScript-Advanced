@@ -16,5 +16,3 @@ In the "JS Advanced" course you will gain in-depth knowledge of the JavaScript l
 - Advanced Functions
 - DOM Manipulations
 - Classes
-- Unit Testing and Modules
-- Strings and RegExp
