@@ -6,7 +6,7 @@ function growingWord() {
         "blue": "green",
         "green": "red",
         "red": "blue"
-    };
+    }
 
     if (!paragraphToEdit.hasAttribute('style')) {
         paragraphToEdit.setAttribute("style", `color:blue; font-size: ${fontSize}px`);
