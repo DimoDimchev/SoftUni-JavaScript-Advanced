@@ -8,7 +8,6 @@ function solve(input) {
         },
     }))
         .sort((a, b) => a.compareTo(b));
-
 }
 
 // First solution
@@ -38,4 +37,4 @@ function solve(input) {
 //     })
 // }
 
-console.log(solve([[10,5], [3,20], [5,12]]))
+// console.log(solve([[10,5], [3,20], [5,12]]))
