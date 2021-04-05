@@ -31,12 +31,15 @@ function attachEvents() {
 
             person.value = '';
             phone.value = '';
+
+            setTimeout( getAll, 1000);
         }
     })
 
     body.addEventListener('click', (evt) => {
         if (evt.target.nodeName === "BUTTON" && evt.target.value !== '') {
             fetch(uri + `/${evt.target.value}/.json`, {method: "DELETE"});
+            setTimeout( getAll, 1000);
         }
     })
 }
