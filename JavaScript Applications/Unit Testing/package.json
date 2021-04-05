@@ -1,0 +1,12 @@
+{
+  "name": "unit_testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha Test/**/*.test.js"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}
