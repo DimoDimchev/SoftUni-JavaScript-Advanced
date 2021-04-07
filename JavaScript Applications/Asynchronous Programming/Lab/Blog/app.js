@@ -1,4 +1,6 @@
 function attachEvents() {
+    let body = document.getElementsByTagName('body')[0];
+
     let uri = `https://blog-apps-c12bf.firebaseio.com/`;
     let loadButton = document.getElementById('btnLoadPosts');
     let postsSelect = document.getElementById('posts');
@@ -34,6 +36,8 @@ function attachEvents() {
                 // console.log(data)
             })
     })
+
+
 }
 
 attachEvents();
