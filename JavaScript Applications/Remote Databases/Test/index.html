@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test app</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+
+</head>
+<body>
+
+    <div class="login-form">
+        <label for="username">Username</label>
+        <input type="text" id="username">
+        <label for="password">Password</label>
+        <input type="password" id="password">
+        <button id="loginButton">Login</button>
+    </div>
+
+    <div id="output">Please log in</div>
+
+<script src="config.js"></script>
+<script>
+    let auth = firebase.auth()
+
+    let loginButton = document.getElementById('loginButton');
+    loginButton.addEventListener('click', onUserLogin);
+
+    function onUserLogin(e) {
+        let loginForm = document.getElementsByClassName('login-form')[0];
+        let username = document.getElementById('username');
+        let password = document.getElementById('password');
+        let output = document.getElementById('output');
+
+        auth.signInWithEmailAndPassword(username.value, password.value)
+            .then(res => {
+                loginForm.style.display = 'none';
+                output.innerText = `User ${res.user.email} logged in`;
+            })
+            .catch(err => {
+                console.log(err);
+                output.innerText = 'Incorrect credentials';
+            })
+
+        auth.signOut();
+    }
+</script>
+</body>
+</html>
