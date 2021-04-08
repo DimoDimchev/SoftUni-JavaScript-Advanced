@@ -20,32 +20,18 @@
     </div>
 
     <div id="output">Please log in</div>
+    <ul id="movies"></ul>
 
-<script src="config.js"></script>
+<script src="auth.js"></script>
 <script>
-    let auth = firebase.auth()
+    let uri = `https://test-project-ecb56-default-rtdb.firebaseio.com`;
+    let moviesList = document.getElementById('movies');
 
-    let loginButton = document.getElementById('loginButton');
-    loginButton.addEventListener('click', onUserLogin);
-
-    function onUserLogin(e) {
-        let loginForm = document.getElementsByClassName('login-form')[0];
-        let username = document.getElementById('username');
-        let password = document.getElementById('password');
-        let output = document.getElementById('output');
-
-        auth.signInWithEmailAndPassword(username.value, password.value)
-            .then(res => {
-                loginForm.style.display = 'none';
-                output.innerText = `User ${res.user.email} logged in`;
-            })
-            .catch(err => {
-                console.log(err);
-                output.innerText = 'Incorrect credentials';
-            })
-
-        auth.signOut();
-    }
+    fetch(uri + `/movies.json`)
+        .then(response => response.json())
+        .then(data => {
+           moviesList.innerHTML = Object.keys(data).map(x => `<li>${data[x].title}</li>`).join("");
+        })
 </script>
 </body>
 </html>
