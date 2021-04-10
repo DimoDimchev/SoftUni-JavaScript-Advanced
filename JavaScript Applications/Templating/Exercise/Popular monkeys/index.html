@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popular Monkeys</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script src="./monkeysTemplate.js"></script>
+</head>
+<body>
+<section>
+    <h1>Most popular monkeys</h1>
+    <div class="monkeys"></div>
+</section>
+
+<script type="text/x-handlebars-template" id="monkey-template">
+    {{#each monkeys}}
+        <div class="monkey">
+            <h2>{{name}}</h2>
+            <img src="{{image}}">
+            <button>Info</button>
+            <p style="display: none" id="{{id}}">{{info}}</p>
+        </div>
+    {{/each}}
+</script>
+
+<script>
+    let resultDiv = document.getElementsByClassName('monkeys')[0];
+    let monkeyView = document.getElementById('monkey-template').innerHTML;
+
+    let monkeyTemplate = Handlebars.compile(monkeyView);
+    resultDiv.innerHTML = monkeyTemplate({monkeys});
+
+    document.querySelectorAll('button').forEach(item => item.addEventListener('click', (evt)=> {
+        if(evt.target.nextElementSibling.style.display === "none") {
+            evt.target.nextElementSibling.style.display = "block";
+        } else {
+            evt.target.nextElementSibling.style.display = "none";
+        }
+    }));
+</script>
+</body>
+</html>
